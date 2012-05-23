@@ -1,16 +1,24 @@
-.. prokarymetrics documentation master file, created by
-   sphinx-quickstart on Wed Mar  7 14:15:43 2012.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 ProkaryMetrics Documentation
 ==========================================
+:Release: |version|
+:Date: March 23, 2012
+
+ProkaryMetrics is a software package providing tools to analyze 
+microbial biofilms through the 3D reconstruction of fluorescent 
+microscopy image data and the manual annotation of bacteria. 
+ProkaryMetrics allows full 3D interaction with such data sets and 
+provides users with visual and quantitative analysis tools to gather 
+quantitative measurements on individuals as well as the biofilm as a 
+whole.
 
 Contents:
 
 .. toctree::
    :maxdepth: 2
 
+   intro.rst
+   data.rst
+   analytics.rst
 
 
 Indices and tables
