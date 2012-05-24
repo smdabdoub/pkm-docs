@@ -18,6 +18,7 @@ Contents:
 
    intro.rst
    data.rst
+   interaction.rst
    analytics.rst
 
 
