@@ -27,6 +27,7 @@ image set with the cursor near one bacterium.
 
 .. figure:: figures/di_rotating_before.png
    :scale: 50 %
+   :align: center
    
 In the next image, the data has been rotated counter-clockwise 
 approximately 90 degrees, and rotated away from the user (into the 
@@ -34,6 +35,7 @@ screen) approximately 45 degrees.
    
 .. figure:: figures/di_rotating_after.png
    :scale: 50 %
+   :align: center
    
 Magnification
 ^^^^^^^^^^^^^
@@ -48,6 +50,7 @@ This screenshot shows the original data from above, magnified.
 
 .. figure:: figures/di_zoom.png
    :scale: 50 %
+   :align: center
    
 Moving Data
 ^^^^^^^^^^^
@@ -63,6 +66,7 @@ below shows the sample data set as was shown previously.
 
 .. figure:: figures/di_rotating_before.png
    :scale: 50 %
+   :align: center
 
 The second image shows the data after being moved over to the right. 
 Notice that neither the orientation nor the magnification level has 
@@ -70,20 +74,196 @@ changed.
 
 .. figure:: figures/di_move.png
    :scale: 50 %
+   :align: center
    
 Rendering Settings
 ^^^^^^^^^^^^^^^^^^
-You can.
+ProkaryMetrics creates the 3D reconstruction of the fluorescent image 
+data using a number of default settings that are user-modifiable through 
+a settings dialog shown below:
 
 .. figure:: figures/di_render_settings.png
+   :align: center
+
+**Loaded image set**
+	This uneditable field simply represents the set of files the image 
+	data is coming from. It assumes the files have a consistent naming 
+	scheme with some static part and a variable part indicating the image 
+	number. ProkaryMetrics extracts the largest static part of the name 
+	to create this field. The asterisk (\*) at the end indicates what 
+	follows in the naming scheme is variable.
+
+**Loaded slices**
+	This indicates how many images were loaded to create the 3D rendering.
+
+**Data Spacing**
+	In order to accurately render the image data, ProkaryMetrics needs to 
+	know the approximate conversion factor from micrometers to pixels. 
+	In the example above, the loaded data has a horizontal (X) and 
+	vertical (Y) resolution of 0.1 micrometers/pixel, and a slice 
+	thickness of 0.56 microns.
+
+**Slice Range**
+	This setting allows you to modify the range of images that are used 
+	to create the 3D rendering. For example, if your first two and last 
+	two image slices are very noisy and should be excluded, you would 
+	change the slice range values to 3 and 12 to only render using 
+	those images.
+
+**Target Pixel Intensity**
+	ProkaryMetrics creates the 3D rendering by connecting pixels of a 
+	specified value/intensity (or range of values) to make a surface in 
+	3D. In the example dialog, the value used is 20000. The large value 
+	indicates it is a 16-bit image as opposed to an 8-bit image. Pixels 
+	in 16-bit images can take a values in the range (0, 2\ :sup:`16`\ -1) 
+	or (0, 65535). Similarly, 8-bit images have pixel values in the range 
+	(0, 2\ :sup:`8`\ -1), or (0, 127).
+
+**Color**
+	This button pops up a color-chooser that allows the user to specify 
+	the overall color the rendered image data should have. The default, 
+	as seen above, is green.
+
+**Visible**
+	Allows the user to make the rendered image data visible or not 
+	visible.
 
 Image Sets as Layers
 --------------------
+ProkaryMetrics allows users to load more than one set of images at a time.
+Each image set is rendered within the Visualization Window as if it was 
+the only image data being rendered. So if you load two sets 
+of image data taken from the same sample but perhaps with different 
+fluorescent colors, the two data sets will be rendered exactly as they 
+appeared under the microscope, i.e. intermingled.
+
+Each image set is separate in terms of settings, but you will need to tell
+ProkaryMetrics which is "active". This can be done through the View >> 
+Select Image Layer menu item. This pops up a dialog with a list of the 
+loaded image sets. One item can be selected at a time, and simply clicking
+on the item will change the currently active image set to the one 
+selected. Then, when you choose the View >> Image Layer Settings menu 
+item, the settings for the correct image set will be displayed.
+
+Note that the Select Image Layer dialog does not prevent interacting with 
+any other windows in ProkaryMetrics, so if you are frequently switching 
+between image sets, you can keep the dialog up at all times.
 
 
 Marking and Recording Bacteria
 ------------------------------
+In order to perform measurements and analysis, ProkaryMetrics currently 
+requires users to mark the visible bacteria within the loaded image 
+data. In the future, we hope to partially automate the process.
 
+The process of recording bacteria begins by marking the rendered image 
+data with end and middle points. Currently ProkaryMetrics expects a 
+bacillus-like morphology for the bacteria and supports three separate 
+forms: coccoid, bacillus, and filament. Functionally, these correspond to 
+one, two, and three or more marker(s) that are required to record each 
+morphological type.
+
+To begin (after loading some image data), make sure the Visualization 
+Window has the focus by clicking once anywhere within it. Notice that the 
+third status bar section indicates that you are currently in **Exploring 
+Mode**. This means that the mouse will be used to manipulate the view of 
+the data as was discussed previously. If you now press the 'x' key, the 
+status bar display will change to indicate you are now in 
+**Recording  Mode**. In this mode, the mouse is used to place and remove 
+the markers that will be used to record the position of bacteria.
+
+Note again, that the mouse cursor is displayed within the Visualization 
+Window as two opposing cones that attach to the nearest surface and follow
+the contours in the data. This allows you to click directly on the image 
+data, and place a marker exactly on the surface of bacteria. 
+
+In the image below, we are in Recording Mode, and the cursor is positioned
+at one end of a bacterium, ready to place a marker.
+
+.. figure:: figures/di_premark.png
+   :scale: 65 %
+   :align: center
+   
+In this next image, a single marker has been placed at the surface of the 
+image data by clicking once. You will notice that the marker is a small 
+sphere with a default color of orange. Both the marker radius and color 
+can be changed with a settings dialog that will be described later. 
+Finally, the cursor has been moved over to the other end of the bacterium 
+in preparation to place the second marker.
+
+.. figure:: figures/di_mark1.png
+   :scale: 65 %
+   :align: center
+
+Here we have placed the second marker at the other end of the bacterium, 
+and since this is a bacillus, requiring two markers, we are ready to 
+record the markers as representing a single bacterium.
+
+.. figure:: figures/di_mark2.png
+   :scale: 65 %
+   :align: center
+
+Once you have placed the appropriate markers, move the mouse down to the 
+Actions Panel beneath the Visualization Window, and click on the 
+**Record Bacterium** button. This removes the markers you just placed, and
+replaces them with a rendering of a single bacterium with the endpoints 
+in the locations you marked.
+
+.. figure:: figures/di_markers_recorded.png
+   :scale: 65 %
+   :align: center
+
+Note that when you click on the record button, the focus is taken away 
+from the Visualization Window, and the keyboard shortcuts will no longer 
+work until the Visualzation Window has focus again. So if you think you 
+will need to rotate the rendered data before placing more markers it is 
+good practice to toggle back to the Exploring Mode (x key) before clicking
+on the Record button. If the rendered data is in good position to continue
+placing markers, go ahead and leave it in Recording Mode.
+
+In this final image, we have recorded a second bacterium.
+
+.. figure:: figures/di_2_bacteria.png
+   :scale: 65 %
+   :align: center
+   
+Note that (except perhaps for very small communities) it is not necessary 
+to record every single bacterium within the sample in order to gather 
+enough data for analysis. In fact, understanding how much of the 
+community *is* necessary is an ongoing area of research.
+
+Deleting Markers and Recorded Bacteria
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+To delete a placed marker, simply move to cursor on or very near it, and 
+right-click with the mouse.
+
+To delete the most recently recorded bacterium, click the **Undo** button 
+in the Actions Panel. If you continue to click the Undo button, it will 
+remove recorded bacteria in reverse order in which they were added.
+
+To delete any specific bacterium, move the mouse cursor on or very near it
+and press the **D** key.
+
+Marker and Bacteria Settings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Selecting the View >> Bacteria Layer Settings menu item will show the 
+following dialog:
+
+.. figure:: figures/di_bacteria_settings.png
+   :scale: 100 %
+   :align: center
+
+**Radius**
+	Determines the size of the placed markers as well as the recorded 
+	bacteria that are rendered.
+	
+**Color**
+	Pops up a color-selection dialog that allows the user to change the 
+	default color of markers and recorded bacteria.
+	
+**Visible**
+	Allows the user to set whether markers and recorded bacteria are 
+	visible or not.
 
 Capturing Screenshots
 ---------------------
