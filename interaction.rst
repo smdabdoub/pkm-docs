@@ -26,15 +26,15 @@ the mouse. The first example below shows an initial rendering of a sample
 image set with the cursor near one bacterium.
 
 .. figure:: figures/di_rotating_before.png
-   :scale: 50 %
+   :scale: 80 %
    :align: center
-   
+
 In the next image, the data has been rotated counter-clockwise 
 approximately 90 degrees, and rotated away from the user (into the 
 screen) approximately 45 degrees.
    
 .. figure:: figures/di_rotating_after.png
-   :scale: 50 %
+   :scale: 80 %
    :align: center
    
 Magnification
@@ -49,7 +49,7 @@ more control over how far it zooms in and out.
 This screenshot shows the original data from above, magnified.
 
 .. figure:: figures/di_zoom.png
-   :scale: 50 %
+   :scale: 80 %
    :align: center
    
 Moving Data
@@ -65,7 +65,7 @@ to whichever button is assigned to be mouse button 3. The first image
 below shows the sample data set as was shown previously.
 
 .. figure:: figures/di_rotating_before.png
-   :scale: 50 %
+   :scale: 80 %
    :align: center
 
 The second image shows the data after being moved over to the right. 
@@ -73,7 +73,7 @@ Notice that neither the orientation nor the magnification level has
 changed.
 
 .. figure:: figures/di_move.png
-   :scale: 50 %
+   :scale: 80 %
    :align: center
    
 Rendering Settings
@@ -192,7 +192,7 @@ Finally, the cursor has been moved over to the other end of the bacterium
 in preparation to place the second marker.
 
 .. figure:: figures/di_mark1.png
-   :scale: 65 %
+   :scale: 80 %
    :align: center
 
 Here we have placed the second marker at the other end of the bacterium, 
@@ -200,7 +200,7 @@ and since this is a bacillus, requiring two markers, we are ready to
 record the markers as representing a single bacterium.
 
 .. figure:: figures/di_mark2.png
-   :scale: 65 %
+   :scale: 80 %
    :align: center
 
 Once you have placed the appropriate markers, move the mouse down to the 
@@ -210,7 +210,7 @@ replaces them with a rendering of a single bacterium with the endpoints
 in the locations you marked.
 
 .. figure:: figures/di_markers_recorded.png
-   :scale: 65 %
+   :scale: 80 %
    :align: center
 
 Note that when you click on the record button, the focus is taken away 
@@ -224,7 +224,7 @@ placing markers, go ahead and leave it in Recording Mode.
 In this final image, we have recorded a second bacterium.
 
 .. figure:: figures/di_2_bacteria.png
-   :scale: 65 %
+   :scale: 80 %
    :align: center
    
 Note that (except perhaps for very small communities) it is not necessary 
