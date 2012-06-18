@@ -1,7 +1,7 @@
 ProkaryMetrics Documentation
 ==========================================
 :Release: |version|
-:Date: March 23, 2012
+:Date: June 20, 2012
 
 ProkaryMetrics is a software package providing tools to analyze 
 microbial biofilms through the 3D reconstruction of fluorescent 
